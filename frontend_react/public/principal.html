@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .principal {
+            color: #ff1e8c;
+            font-size: 56px;
+        }
+
+        .title {
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            background-color: #e6007e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .course-item {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .course-item span {
+            font-size: 18px;
+            flex: 1;
+        }
+
+        .pdf-button, .info-button {
+            background-color: #e6007e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .pdf-button:hover, .info-button:hover {
+            background-color: #ff1e8c;
+        }
+
+        .pdf-button:focus, .info-button:focus {
+            outline: none;
+        }
+
+        .course-description {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="principal">NANO COURSES</h1>
+            <button class="back-button" onclick="window.location.href='login.html'">Voltar ao Login</button>
+        </div>
+        <hr>
+        <h4 class="title">SEUS CURSOS</h4>
+        <div class="course-list">
+            <!-- Cursos -->
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Algoritmos: Aprenda a programar</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/1.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Este curso introduz os conceitos básicos de algoritmos e lógica de programação. Você aprenderá a resolver problemas computacionais utilizando técnicas fundamentais e boas práticas de codificação.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Big Data & Analytics</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/2.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Entenda os conceitos de Big Data e Analytics e como eles são usados para processar e analisar grandes volumes de dados, ajudando a tomar decisões baseadas em informações.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Blockchain</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/3.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra os fundamentos da tecnologia blockchain, incluindo seus principais componentes, funcionamento e como ela está revolucionando diferentes setores.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Blockchain Advanced</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/4.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Avance nos conhecimentos de blockchain e explore conceitos avançados como contratos inteligentes, redes privadas e aplicações práticas.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            <!-- Adicione os outros cursos seguindo o mesmo padrão -->
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Branding Analytics</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/5.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda como usar dados analíticos para fortalecer marcas e criar campanhas de marketing mais eficazes.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Business Management & IT Services</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/6.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Explore estratégias de gestão de negócios e a integração de serviços de TI para alcançar melhores resultados.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Customer Experience Management</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/7.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra como melhorar a experiência do cliente em todos os pontos de contato, criando fidelidade e satisfação.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Cybersecurity</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/8.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Entenda os fundamentos da segurança cibernética e como proteger sistemas e dados contra ameaças digitais.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Data Driven Decision</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/9.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda a tomar decisões estratégicas com base em análise de dados e insights valiosos.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Design Thinking</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/10.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra como o Design Thinking pode ajudar a resolver problemas complexos de forma criativa e colaborativa.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>DevOps & Agile Culture</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/11.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Entenda como o DevOps e a cultura ágil podem melhorar a entrega de software e a colaboração entre equipes.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Dominando IoT</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/12.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda como a Internet das Coisas (IoT) está conectando dispositivos e criando novas oportunidades de inovação.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Future-Proof Organizations</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/13.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Explore estratégias para tornar organizações resilientes e prontas para o futuro.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Game Design</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/14.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra os fundamentos do design de jogos, incluindo mecânicas, narrativa e experiência do jogador.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Governança de TI</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/15.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda a alinhar TI às estratégias empresariais para alcançar maior eficiência e controle.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Inovação Disruptiva</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/16.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Entenda como a inovação disruptiva pode transformar mercados e criar novas oportunidades de negócios.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Inteligência Artificial e Computacional</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/17.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra os fundamentos da inteligência artificial e como ela está sendo aplicada em diferentes indústrias.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Leadership and Corporate Accountability</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/18.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda como liderar com responsabilidade e ética no ambiente corporativo, garantindo decisões justas e sustentáveis.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Programação em Banco de Dados</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/19.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Explore os conceitos de programação em banco de dados, incluindo consultas SQL, modelagem e gestão eficiente de dados.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>Social Media Planning</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/20.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Aprenda a planejar e executar campanhas em redes sociais para maximizar engajamento e alcance.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+            
+            <div class="course-item">
+                <div class="course-header">
+                    <span>User Experience</span>
+                    <div>
+                        <button class="pdf-button" onclick="downloadPDF('PDFS/21.pdf')">Baixar PDF</button>
+                        <button class="info-button" onclick="showDescription(this, 'Descubra como criar experiências excepcionais para os usuários, alinhando design, usabilidade e satisfação.')">
+                            Saber Mais
+                        </button>
+                    </div>
+                </div>
+                <p class="course-description" style="display: none;"></p>
+            </div>
+                        
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF(pdfURL) {
+            const a = document.createElement('a');
+            a.href = pdfURL;
+            a.download = pdfURL.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function showDescription(button, description) {
+            const descriptionElement = button.parentElement.parentElement.nextElementSibling;
+            if (descriptionElement.style.display === 'none') {
+                descriptionElement.style.display = 'block';
+                descriptionElement.textContent = description;
+            } else {
+                descriptionElement.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
